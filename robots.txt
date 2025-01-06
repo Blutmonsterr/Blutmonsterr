@@ -4,4 +4,4 @@ Disallow: /fonts/
 Disallow: /images/
 Disallow: /.github/
 
-Sitemap: https://www.blutmonsterr.de/sitemap.xml
+Sitemap: https://blutmonsterr.de/sitemap.xml

@@ -1,7 +1,0 @@
-User -agent: *
-Disallow: /.css/
-Disallow: /fonts/
-Disallow: /images/
-Disallow: /.github/
-
-Sitemap: https://blutmonsterr.de/sitemap.xml

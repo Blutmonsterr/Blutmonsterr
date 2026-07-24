@@ -1,2 +1,0 @@
-# blutmonsterr
-# landingpage

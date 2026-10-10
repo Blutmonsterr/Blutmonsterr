@@ -247,6 +247,15 @@ body {
     border-color: transparent;
 }
 
+/* Website / Homepage */
+.link-button[data-service="website"],
+.link-button[data-service="generic-website"],
+.link-button[data-service="generic-homepage"] {
+    background-color: #1f4068;
+    color: var(--primary-color);
+    border-color: transparent;
+}
+
 /* X (Twitter) */
 .link-button[data-service="x"] {
     background-color: #000000;

@@ -50,7 +50,7 @@ const config = {
             url: "https://www.instagram.com/DEIN_PROFIL",
             text: "Folge mir auf Instagram",
             service: "instagram",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
@@ -58,14 +58,21 @@ const config = {
             text: "Mein YouTube-Kanal",
             service: "youtube",
             visible: true,
-            sortId: 5
+            sortId: 6
         },
         {
             url: "https://www.twitch.tv/blutmonsterr",
             text: "Twitch Stream",
             service: "twitch",
             visible: true,
-            sortId: 6
+            sortId: 5
+        },
+        {
+            url: "https://discord.gg/ydJWD3KrXh",
+            text: "Mein Discord Server",
+            service: "discord",
+            visible: true,
+            sortId: 8
         },
         {
             url: "https://discordapp.com/users/324166395443150849/",
@@ -79,20 +86,27 @@ const config = {
             text: "Mein Steam Profil",
             service: "steam",
             visible: true,
-            sortId: 2
+            sortId: 4
+        },
+        {
+            url: "https://daddeln.at/",
+            text: "Daddeln.at",
+            service: "website",
+            visible: true,
+            sortId: 7
         },
         {
             url: "https://x.com/DEIN_PROFIL",
             text: "Folge mir auf X",
             service: "x",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.tiktok.com/@DEIN_PROFIL",
             text: "Mein TikTok",
             service: "tiktok",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
@@ -100,48 +114,48 @@ const config = {
             text: "Mein Code auf GitHub",
             service: "github",
             visible: true,
-            sortId: 4
+            sortId: 5
         },
         {
             url: "https://www.patreon.com/DEIN_PROFIL",
             text: "Unterstütze mich auf Patreon",
             service: "patreon",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.paypal.me/DEIN_PROFIL",
             text: "Spende via PayPal",
             service: "paypal",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.facebook.com/DEIN_PROFIL",
             text: "Finde mich auf Facebook",
             service: "facebook",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.linkedin.com/in/DEIN_PROFIL",
             text: "Mein LinkedIn Profil",
             service: "linkedin",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.reddit.com/user/DEIN_PROFIL",
             text: "Mein Reddit Profil",
             service: "reddit",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.snapchat.com/add/DEIN_PROFIL",
             text: "Mein Snapchat",
             service: "snapchat",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
@@ -155,168 +169,168 @@ const config = {
             url: "https://t.me/DEIN_PROFIL",
             text: "Schreib mir auf Telegram",
             service: "telegram",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.threads.net/@DEIN_PROFIL",
             text: "Folge mir auf Threads",
             service: "threads",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://wa.me/DEINE_NUMMER",
             text: "Schreib mir auf WhatsApp",
             service: "whatsapp",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.amazon.de/hz/wishlist/ls/DEINE_LISTE",
             text: "Meine Amazon Wunschliste",
             service: "amazon",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "mailto:deine@email.com",
             text: "Schreib mir eine E-Mail",
             service: "email",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.buymeacoffee.com/DEIN_PROFIL",
             text: "Kauf mir einen Kaffee",
             service: "buy-me-a-coffee",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://ko-fi.com/DEIN_PROFIL",
             text: "Unterstütze mich auf Ko-fi",
             service: "ko-fi",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://music.amazon.com/artists/DEIN_PROFIL",
             text: "Amazon Music",
             service: "amazon-music",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://music.apple.com/us/artist/DEIN_PROFIL",
             text: "Apple Music",
             service: "apple-music",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://podcasts.apple.com/us/podcast/DEIN_PODCAST",
             text: "Apple Podcasts",
             service: "apple-podcasts",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.apple.com/",
             text: "Apple",
             service: "apple",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.artstation.com/DEIN_PROFIL",
             text: "ArtStation",
             service: "artstation",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://DEIN_PROFIL.bandcamp.com/",
             text: "Bandcamp",
             service: "bandcamp",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.behance.net/DEIN_PROFIL",
             text: "Behance",
             service: "behance",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://bsky.app/profile/DEIN_PROFIL.bsky.social",
             text: "Bluesky",
             service: "bluesky",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://cal.com/DEIN_PROFIL",
             text: "Cal.com",
             service: "cal",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://calendly.com/DEIN_PROFIL",
             text: "Calendly",
             service: "calendly",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://dev.to/DEIN_PROFIL",
             text: "Dev.to",
             service: "dev-to",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.discogs.com/user/DEIN_PROFIL",
             text: "Discogs",
             service: "discogs",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://dribbble.com/DEIN_PROFIL",
             text: "Dribbble",
             service: "dribbble",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.etsy.com/shop/DEIN_SHOP",
             text: "Etsy",
             service: "etsy",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.figma.com/@DEIN_PROFIL",
             text: "Figma",
             service: "figma",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.fiverr.com/DEIN_PROFIL",
             text: "Fiverr",
             service: "fiverr",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {
             url: "https://www.flickr.com/photos/DEIN_PROFIL",
             text: "Flickr",
             service: "flickr",
-            visible: true,
+            visible: false,
             sortId: null
         },
         {

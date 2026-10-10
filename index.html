@@ -3,32 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ihr Name | Links</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link id="favicon" rel="icon" type="image/png" href="">
+    <title id="page-title"></title>
     <link rel="stylesheet" href="css/style.css">
     <!-- Optional: Google Fonts für eine schönere Schriftart -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="background-layer"></div>
 
     <div class="container">
         
         <!-- ===== PROFIL-BEREICH ===== -->
         <header class="profile">
-            <img src="https://via.placeholder.com/150" alt="Profilbild von Ihr Name" class="profile-picture">
-            <h1>@IhrName</h1>
-            <p>Eine kurze Beschreibung über Sie, Ihr Projekt oder Ihre Firma.</p>
+            <img id="profile-picture" src="" alt="Profilbild" class="profile-picture">
+            <h1 id="profile-name"></h1>
+            <p id="profile-description">Willkommen auf meiner Seite! Hier findet ihr alle wichtigen Links zu meinem Content.</p>
+
+            <!-- ===== STATUS-ANZEIGEN ===== -->
+            <div class="status-indicators">
+                <div class="status-item" id="twitch-status-container">
+                    <span><img src="images/icons/twitch.svg" class="status-icon" alt="Twitch Icon">Zuletzt online</span><strong id="twitch-status">...</strong>
+                </div>
+                <div class="status-item" id="youtube-status-container">
+                    <span><img src="images/icons/youtube.svg" class="status-icon" alt="YouTube Icon">Letztes Video</span><strong id="youtube-status">...</strong>
+                </div>
+            </div>
         </header>
 
+        <!-- ===== LAYOUT-STEUERUNG ===== -->
+        <div class="layout-controls">
+            <button id="layout-list-btn" class="layout-btn active" title="Listenansicht">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+            </button>
+            <button id="layout-grid-btn" class="layout-btn" title="Rasteransicht">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </button>
+        </div>
+
         <!-- ===== LINK-BEREICH ===== -->
-        <main class="links">
-            <a href="#" class="link-button" target="_blank" rel="noopener noreferrer">Mein Blog oder Website</a>
-            <a href="#" class="link-button" target="_blank" rel="noopener noreferrer">Mein YouTube-Kanal</a>
-            <a href="#" class="link-button" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
-            <a href="#" class="link-button" target="_blank" rel="noopener noreferrer">Kontaktformular</a>
-        </main>
+        <main class="links"></main>
+
+        <!-- ===== VIDEO-BEREICH ===== -->
+        <section class="video-section">
+            <h2>Neuestes Video</h2>
+            <a id="latest-video-link" href="#" target="_blank" rel="noopener noreferrer" class="video-card">
+                <img id="latest-video-thumbnail" src="" alt="Thumbnail des neuesten Videos" class="video-thumbnail">
+                <p id="latest-video-title" class="video-title">...</p>
+            </a>
+        </section>
+
 
         <!-- ===== FOOTER-BEREICH (Optional) ===== -->
         <footer class="footer">
@@ -36,6 +64,10 @@
         </footer>
 
     </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 </html>

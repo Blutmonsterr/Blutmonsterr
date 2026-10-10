@@ -210,7 +210,7 @@ async function fetchStatusUpdates() {
     const ytThumbEl = document.getElementById("latest-video-thumbnail");
     const ytTitleEl = document.getElementById("latest-video-title");
 
-    if ((ytStatusEl || ytPlayerEl) && youtubeChannelId) {
+    if (ytStatusEl && youtubeChannelId) {
         try {
             // Umstellung auf den zuverlässigeren rss2json-Dienst
             const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${youtubeChannelId}`)}`);
@@ -243,39 +243,44 @@ async function fetchStatusUpdates() {
                 }
             }
         } catch (error) {
-            console.error("Fehler beim Abrufen des YouTube-Status:", error);
-            if (ytTitleEl) ytTitleEl.textContent = "Video konnte nicht geladen werden.";
+            console.warn("YouTube-Status konnte nicht geladen werden:", error);
+            if (ytTitleEl) ytTitleEl.textContent = "Neuestes Video auf YouTube ansehen";
         }
     }
 
-    // === Twitch-Status abrufen (via Serverless Function) ===
+    // === Twitch-Status abrufen ===
     const twitchStatusEl = document.getElementById("twitch-status");
     if (twitchStatusEl && twitchUsername) {
-        try {
-            // HINWEIS: Dies erfordert eine Serverless Function unter der URL '/api/twitch'
-            // die Ihren API-Schlüssel sicher verwendet.
-            const response = await fetch(`/api/twitch?user=${twitchUsername}`);
-            if (!response.ok) throw new Error(`Server-Antwort: ${response.status}`);
-            
-            const data = await response.json();
-
-            if (data.isLive) {
-                twitchStatusEl.textContent = "LIVE!";
-                twitchStatusEl.classList.add("live");
-                twitchStatusEl.classList.remove("offline");
-            } else if (data.lastStreamTime) {
-                twitchStatusEl.textContent = new Date(data.lastStreamTime).toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' Uhr';
-                twitchStatusEl.classList.add("offline");
-                twitchStatusEl.classList.remove("live");
-            } else {
+        // Nur abrufen, wenn in config.layout aktiviert (z.B. bei vorhandener Backend-Funktion /api/twitch)
+        if (config.layout?.enableTwitchStatusApi) {
+            try {
+                const response = await fetch(`/api/twitch?user=${twitchUsername}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.isLive) {
+                        twitchStatusEl.textContent = "LIVE!";
+                        twitchStatusEl.classList.add("live");
+                        twitchStatusEl.classList.remove("offline");
+                    } else if (data.lastStreamTime) {
+                        twitchStatusEl.textContent = new Date(data.lastStreamTime).toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) + ' Uhr';
+                        twitchStatusEl.classList.add("offline");
+                        twitchStatusEl.classList.remove("live");
+                    } else {
+                        twitchStatusEl.textContent = "Offline";
+                        twitchStatusEl.classList.add("offline");
+                    }
+                } else {
+                    twitchStatusEl.textContent = "Offline";
+                    twitchStatusEl.classList.add("offline");
+                }
+            } catch (error) {
                 twitchStatusEl.textContent = "Offline";
                 twitchStatusEl.classList.add("offline");
             }
-        } catch (error) {
-            console.error("Fehler beim Abrufen des Twitch-Status:", error);
-            // Da die API noch nicht existiert, wird hier ein Fehler angezeigt.
-            // Das ist erwartet.
+        } else {
+            // Standard-Status ohne fehlschlagende Netzwerk-Anfrage
             twitchStatusEl.textContent = "Offline";
+            twitchStatusEl.classList.add("offline");
         }
     }
 }

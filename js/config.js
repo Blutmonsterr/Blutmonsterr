@@ -31,6 +31,7 @@ const config = {
     },
     layout: {
         showStatusIndicators: true, // true oder false
+        enableTwitchStatusApi: false, // true = Serverless Function unter /api/twitch abfragen, false = statisch 'Offline' ohne Fehler
         showYouTubeBox: true,       // true oder false
         youTubeBoxPosition: 'after', // 'before' oder 'after' den Links
         defaultView: 'list'          // 'list' oder 'grid'

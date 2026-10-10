@@ -13,9 +13,9 @@ body {
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
@@ -57,6 +57,7 @@ body {
     width: 100%;
     max-width: 680px;
     text-align: center;
+    margin: 0 auto;
 }
 
 .profile-picture {

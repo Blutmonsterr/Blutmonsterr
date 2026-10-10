@@ -80,6 +80,11 @@ function getImpressumHTML() {
                 ${escapeHTML(data.responsibleAddress || `${data.co ? data.co + ', ' : ''}${data.street}, ${data.city}`)}
             </p>
 
+            <h3>Konzeption, Design & Umsetzung</h3>
+            <p>
+                ${escapeHTML(data.name)}
+            </p>
+
             <h3>EU-Streitschlichtung</h3>
             <p>
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 

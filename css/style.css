@@ -1131,6 +1131,14 @@ body {
     font-size: 0.85rem;
 }
 
+.footer-credit {
+    margin: 0 0 12px 0;
+    font-size: 0.82rem;
+    opacity: 0.65;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+}
+
 .footer-nav {
     display: inline-flex;
     align-items: center;

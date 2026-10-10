@@ -10,21 +10,24 @@ const config = {
     },
     legal: {
         // ===== RECHTLICHE ANGABEN (DEUTSCHES RECHT: § 5 DDG / ehem. TMG & DSGVO) =====
-        // HINWEIS: Das Telemediengesetz (TMG, § 5 TMG) wurde im Mai 2024 durch das 
-        // Digitale-Dienste-Gesetz (DDG, § 5 DDG) abgelöst.
-        name: "Max Mustermann", // Bürgerlicher Vor- und Nachname (Pflichtangabe im Impressum)
-        street: "Musterstraße 1", // Ladungsfähige Anschrift (Straße und Hausnummer, kein Postfach)
-        city: "12345 Musterstadt", // Postleitzahl und Wohnort
+        name: "Sebastian Mackert",
+        co: "c/o Autorenglück #79454",
+        street: "Albert-Einstein-Str. 47",
+        city: "02977 Hoyerswerda",
         country: "Deutschland",
-        email: "kontakt@example.com", // E-Mail-Adresse für schnelle Kontaktaufnahme
-        phone: "+49 (0) 123 456789", // Telefonnummer (oder Mobilnummer)
+        email: "info@daddeln.at",
+        phone: "", // Keine Telefonnummer angegeben
 
-        // Redaktionell verantwortlich nach § 18 Abs. 2 MStV (Medienstaatsvertrag - z.B. für Videos/Streams):
-        responsibleName: "Max Mustermann",
-        responsibleAddress: "Musterstraße 1, 12345 Musterstadt",
+        // Redaktionell verantwortlich nach § 18 Abs. 2 MStV (Medienstaatsvertrag):
+        responsibleName: "Sebastian Mackert",
+        responsibleAddress: "c/o Autorenglück #79454, Albert-Einstein-Str. 47, 02977 Hoyerswerda",
 
-        // Umsatzsteuer-Identifikationsnummer (optional, z. B. bei Gewerbe/Monetarisierung):
-        vatId: "" // z. B. "DE123456789" (leer lassen, falls keine USt-IdNr. vorhanden ist)
+        // Umsatzsteuer-Identifikationsnummer (optional, leer lassen falls keine vorhanden):
+        vatId: "",
+
+        // Webhosting & Serverstandort:
+        hostingProvider: "Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland",
+        serverLocation: "Finnland (Helsinki / EU)"
     },
     layout: {
         showStatusIndicators: true, // true oder false

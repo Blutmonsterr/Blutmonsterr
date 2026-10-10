@@ -5,15 +5,18 @@
 
 function getLegalData() {
     const defaultData = {
-        name: "Max Mustermann",
-        street: "Musterstraße 1",
-        city: "12345 Musterstadt",
+        name: "Sebastian Mackert",
+        co: "c/o Autorenglück #79454",
+        street: "Albert-Einstein-Str. 47",
+        city: "02977 Hoyerswerda",
         country: "Deutschland",
-        email: "kontakt@example.com",
-        phone: "+49 (0) 123 456789",
-        responsibleName: "Max Mustermann",
-        responsibleAddress: "Musterstraße 1, 12345 Musterstadt",
-        vatId: ""
+        email: "info@daddeln.at",
+        phone: "",
+        responsibleName: "Sebastian Mackert",
+        responsibleAddress: "c/o Autorenglück #79454, Albert-Einstein-Str. 47, 02977 Hoyerswerda",
+        vatId: "",
+        serverLocation: "Finnland (Helsinki / EU)",
+        hostingProvider: "Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland"
     };
 
     if (typeof config !== 'undefined' && config.legal) {
@@ -51,16 +54,17 @@ function getImpressumHTML() {
 
             <h3>Angaben gemäß § 5 DDG</h3>
             <p>
-                <strong>${formatField(data.name, "Max Mustermann")}</strong><br>
-                ${formatField(data.street, "Musterstraße 1")}<br>
-                ${formatField(data.city, "12345 Musterstadt")}<br>
-                ${formatField(data.country, "Deutschland")}
+                <strong>${escapeHTML(data.name)}</strong><br>
+                ${data.co ? `${escapeHTML(data.co)}<br>` : ''}
+                ${escapeHTML(data.street)}<br>
+                ${escapeHTML(data.city)}<br>
+                ${escapeHTML(data.country || 'Deutschland')}
             </p>
 
             <h3>Kontakt</h3>
             <p>
-                <strong>Telefon:</strong> ${formatField(data.phone, "+49 (0) 123 456789")}<br>
-                <strong>E-Mail:</strong> <a href="mailto:${escapeHTML(data.email)}">${formatField(data.email, "kontakt@example.com")}</a>
+                ${data.phone ? `<strong>Telefon:</strong> ${escapeHTML(data.phone)}<br>` : ''}
+                <strong>E-Mail:</strong> <a href="mailto:${escapeHTML(data.email)}">${escapeHTML(data.email)}</a>
             </p>
 
             ${data.vatId ? `
@@ -72,8 +76,8 @@ function getImpressumHTML() {
 
             <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
             <p>
-                ${formatField(data.responsibleName || data.name, "Max Mustermann")}<br>
-                ${formatField(data.responsibleAddress || `${data.street}, ${data.city}`, "Musterstraße 1, 12345 Musterstadt")}
+                <strong>${escapeHTML(data.responsibleName || data.name)}</strong><br>
+                ${escapeHTML(data.responsibleAddress || `${data.co ? data.co + ', ' : ''}${data.street}, ${data.city}`)}
             </p>
 
             <h3>EU-Streitschlichtung</h3>
@@ -129,7 +133,7 @@ function getImpressumHTML() {
 }
 
 /**
- * Erzeugt die Datenschutzerklärung nach DSGVO (Art. 13 DSGVO)
+ * Erzeugt die Datenschutzerklärung nach DSGVO (Art. 13 DSGVO) mit Hetzner-Hosting
  */
 function getDatenschutzHTML() {
     const data = getLegalData();
@@ -173,36 +177,54 @@ function getDatenschutzHTML() {
             <h3>2. Verantwortliche Stelle</h3>
             <p>
                 Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br><br>
-                <strong>${formatField(data.name, "Max Mustermann")}</strong><br>
-                ${formatField(data.street, "Musterstraße 1")}<br>
-                ${formatField(data.city, "12345 Musterstadt")}<br>
-                ${formatField(data.country, "Deutschland")}<br><br>
-                <strong>Telefon:</strong> ${formatField(data.phone, "+49 (0) 123 456789")}<br>
-                <strong>E-Mail:</strong> <a href="mailto:${escapeHTML(data.email)}">${formatField(data.email, "kontakt@example.com")}</a>
+                <strong>${escapeHTML(data.name)}</strong><br>
+                ${data.co ? `${escapeHTML(data.co)}<br>` : ''}
+                ${escapeHTML(data.street)}<br>
+                ${escapeHTML(data.city)}<br>
+                ${escapeHTML(data.country || 'Deutschland')}<br><br>
+                ${data.phone ? `<strong>Telefon:</strong> ${escapeHTML(data.phone)}<br>` : ''}
+                <strong>E-Mail:</strong> <a href="mailto:${escapeHTML(data.email)}">${escapeHTML(data.email)}</a>
             </p>
             <p>
                 Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel 
                 der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
             </p>
 
-            <h3>3. Datenerfassung auf dieser Website</h3>
+            <h3>3. Hosting und Server-Log-Dateien</h3>
+            <h4>Hosting bei Hetzner</h4>
+            <p>
+                Wir hosten unsere Website bei der <strong>Hetzner Online GmbH</strong>, Industriestr. 25, 91710 Gunzenhausen, Deutschland (nachfolgend „Hetzner“).
+            </p>
+            <p>
+                Wenn Sie unsere Website besuchen, erfasst Hetzner verschiedene Logfiles inklusive Ihrer IP-Adresse. 
+                Der Serverstandort dieser Website befindet sich im Rechenzentrum von Hetzner in <strong>Helsinki, Finnland (Europäische Union)</strong>. 
+                Die Datenverarbeitung erfolgt somit vollständig innerhalb der Europäischen Union auf Grundlage der strengen Sicherheits- und Datenschutzstandards der DSGVO.
+            </p>
+            <p>
+                Details entnehmen Sie der Datenschutzerklärung von Hetzner: 
+                <a href="https://www.hetzner.com/de/legal/privacy-policy" target="_blank" rel="noopener noreferrer">https://www.hetzner.com/de/legal/privacy-policy</a>.
+            </p>
+            <p>
+                Die Verwendung von Hetzner erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>. Wir haben ein berechtigtes Interesse an einer 
+                möglichst zuverlässigen, performanten und sicheren Bereitstellung unseres Online-Angebots.
+            </p>
+
             <h4>Server-Log-Dateien</h4>
             <p>
-                Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, 
-                die Ihr Browser automatisch an uns übermittelt. Dies sind:
+                Der Webserver erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, 
+                die Ihr Browser automatisch an den Server übermittelt. Dies sind:
             </p>
             <ul>
                 <li>Browsertyp und Browserversion</li>
                 <li>verwendetes Betriebssystem</li>
                 <li>Referrer URL (die zuvor besuchte Seite)</li>
-                <li>Hostname des zugreifenden Rechners</li>
+                <li>Hostname des zugreifenden Rechners / IP-Adresse</li>
                 <li>Uhrzeit der Serveranfrage</li>
-                <li>IP-Adresse</li>
             </ul>
             <p>
                 Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt 
                 auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien 
-                Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.
+                Bereitstellung und der Systemsicherheit seiner Website.
             </p>
 
             <h4>SSL- bzw. TLS-Verschlüsselung</h4>

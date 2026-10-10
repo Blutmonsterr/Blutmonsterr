@@ -1,0 +1,7 @@
+# robots.txt für Blutmonsterr / daddeln.at
+User-agent: *
+Allow: /
+
+# Sitemap-Verweis
+Sitemap: https://daddeln.at/sitemap.xml
+
